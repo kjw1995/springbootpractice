@@ -2,14 +2,42 @@ package com.springbootpractice.springbootpractice.configuration.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
+
+import com.springbootpractice.springbootpractice.configuration.filter.CustomAuthenticationFilter;
+import com.springbootpractice.springbootpractice.configuration.provider.CustomAuthenticationProvider;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Bean
+    public BCrypt passwordEncoder() { return new BCrypt(); }
+
+    @Bean
+    public AuthenticationManager providerManager() { return new ProviderManager(customAuthenticationProvider()); }
+
+    @Bean
+    public CustomAuthenticationProvider customAuthenticationProvider() {return new CustomAuthenticationProvider(passwordEncoder());}
+
+    @Bean
+    public CustomAuthenticationFilter customAuthenticationFilter() {
+
+        CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(providerManager());
+        customAuthenticationFilter.setFilterProcessesUrl("/login");
+        customAuthenticationFilter.afterPropertiesSet();
+
+        return customAuthenticationFilter;
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector HandlerMappingIntrospector) throws Exception {
@@ -19,7 +47,6 @@ public class SecurityConfig {
          */
         http.csrf((csrf) -> csrf.disable());
 
-    
         /*
          * 커스텀 로그인 방식
          */
@@ -40,6 +67,8 @@ public class SecurityConfig {
                                 .logoutUrl("/logout")
                                 .logoutSuccessUrl("/main")
         );
+
+        http.addFilterBefore(customAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
             
 
         return http.build();
