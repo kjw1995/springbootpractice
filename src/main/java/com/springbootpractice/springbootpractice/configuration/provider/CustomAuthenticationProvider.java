@@ -21,7 +21,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 
     @Override
     public boolean supports(Class<?> authentication) {
-        int i = 0;
         throw new UnsupportedOperationException("Unimplemented method 'supports'");
     }
 
