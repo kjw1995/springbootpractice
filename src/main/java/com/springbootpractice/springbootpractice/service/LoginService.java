@@ -1,5 +1,7 @@
 package com.springbootpractice.springbootpractice.service;
 
-public class LoginService {
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public interface LoginService extends UserDetailsService{
     
 }
