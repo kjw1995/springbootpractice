@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
@@ -21,7 +20,7 @@ import com.springbootpractice.springbootpractice.configuration.provider.CustomAu
 public class SecurityConfig {
 
     @Bean
-    public BCrypt passwordEncoder() { return new BCrypt(); }
+    public BCryptPasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
 
     @Bean
     public AuthenticationManager providerManager() { return new ProviderManager(customAuthenticationProvider()); }
@@ -33,7 +32,7 @@ public class SecurityConfig {
     public CustomAuthenticationFilter customAuthenticationFilter() {
 
         CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(providerManager());
-        customAuthenticationFilter.setFilterProcessesUrl("/login");
+        customAuthenticationFilter.setFilterProcessesUrl("/login/process");
         customAuthenticationFilter.afterPropertiesSet();
 
         return customAuthenticationFilter;
