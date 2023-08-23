@@ -3,6 +3,7 @@ package com.springbootpractice.springbootpractice.configuration.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,7 +27,7 @@ public class SecurityConfig {
     public AuthenticationManager providerManager() { return new ProviderManager(customAuthenticationProvider()); }
 
     @Bean
-    public CustomAuthenticationProvider customAuthenticationProvider() {return new CustomAuthenticationProvider(passwordEncoder());}
+    public AuthenticationProvider customAuthenticationProvider() { return new CustomAuthenticationProvider(passwordEncoder());}
 
     @Bean
     public CustomAuthenticationFilter customAuthenticationFilter() {

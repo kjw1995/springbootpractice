@@ -2,6 +2,7 @@ package com.springbootpractice.springbootpractice.configuration.provider;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -33,9 +34,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         UserDetailModel userDetailModel = (UserDetailModel)loginService.loadUserByUsername(userName);
 
         if(!passwordEncoder.matches(userPassword, userDetailModel.getPassword())) {
-            return null;
+            throw new BadCredentialsException("비밀번호가 불일치 합니다.");
         }
-
 
         return new UsernamePasswordAuthenticationToken(
                                                         userDetailModel, 
