@@ -1,5 +1,7 @@
 package com.springbootpractice.springbootpractice.configuration.provider;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,6 +19,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
+    private static final Logger logger = LoggerFactory.getLogger(CustomAuthenticationProvider.class);
+
     public CustomAuthenticationProvider(BCryptPasswordEncoder passwordEncoder) {}
 
     @Autowired
@@ -31,17 +35,18 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String userName = authentication.getName();
         String userPassword = authentication.getCredentials().toString();
 
+        logger.info("userName = " + userName);
+        logger.info("userPassword = " + userPassword);
+        logger.info("encoded = " + passwordEncoder.encode(userPassword));
+
         UserDetailModel userDetailModel = (UserDetailModel)loginService.loadUserByUsername(userName);
 
-        if(!passwordEncoder.matches(userPassword, userDetailModel.getPassword())) {
-            throw new BadCredentialsException("비밀번호가 불일치 합니다.");
-        }
+        // if(!passwordEncoder.matches(userPassword, userDetailModel.getPassword())) {
+        //     logger.info("비밀번호가 불일치 합니다.");
+        //     throw new BadCredentialsException("비밀번호가 불일치 합니다.");
+        // }
 
-        return new UsernamePasswordAuthenticationToken(
-                                                        userDetailModel, 
-                                                        null, 
-                                                        userDetailModel.getAuthorities()
-                                                      );
+        return new UsernamePasswordAuthenticationToken(userDetailModel, null, userDetailModel.getAuthorities());
     }
 
     @Override

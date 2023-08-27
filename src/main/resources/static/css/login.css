@@ -934,7 +934,7 @@ div.loginpanel a.register:before {
   padding-right: 6px;
 }
 div.loginpanel a.register:hover {
-  color: #2ecc71;
+  color: red;
   text-shadow: 0 1px #555;
 }
 div.loginpanel a.register:active {
@@ -974,7 +974,7 @@ div.loginpanel div.txt input[type="password"]:focus {
 }
 div.loginpanel div.txt input[type="text"]:focus,
 div.loginpanel div.txt input[type="password"]:focus {
-  border-color: #27ae60;
+  border-color: black;
 }
 div.loginpanel div.txt label {
   cursor: text;
@@ -1015,29 +1015,29 @@ div.loginpanel div.buttons span a {
 div.loginpanel input[type="button"] {
   cursor: pointer;
   color: #FFF;
-  text-shadow: 0 1px #27ae60;
+  text-shadow: 0 1px black;
   font-size: 1.2em;
   border: 0 none;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   outline: none;
-  background-color: #2ecc71;
-  -webkit-box-shadow: 0 2px #27ae60, inset 0 0 #27ae60;
-  -moz-box-shadow: 0 2px #27ae60, inset 0 0 #27ae60;
-  box-shadow: 0 2px #27ae60, inset 0 0 #27ae60;
+  background-color: black;
+  -webkit-box-shadow: 0 2px black, inset 0 0 black;
+  -moz-box-shadow: 0 2px black, inset 0 0 black;
+  box-shadow: 0 2px black, inset 0 0 black;
 }
 div.loginpanel input[type="button"]:hover,
 div.loginpanel input[type="button"]:focus {
-  background-color: #29b765;
-  -webkit-box-shadow: 0 2px #229955, inset 0 0 #27ae60;
-  -moz-box-shadow: 0 2px #229955, inset 0 0 #27ae60;
-  box-shadow: 0 2px #229955, inset 0 0 #27ae60;
+  background-color: black;
+  -webkit-box-shadow: 0 2px black, inset 0 0 black;
+  -moz-box-shadow: 0 2px black, inset 0 0 black;
+  box-shadow: 0 2px black, inset 0 0 black;
 }
 div.loginpanel input[type="button"]:active {
-  -webkit-box-shadow: 0 0 #229955, inset 0 1px #229955;
-  -moz-box-shadow: 0 0 #229955, inset 0 1px #229955;
-  box-shadow: 0 0 #229955, inset 0 1px #229955;
+  -webkit-box-shadow: 0 0 black, inset 0 1px black;
+  -moz-box-shadow: 0 0 black, inset 0 1px black;
+  box-shadow: 0 0 black, inset 0 1px black;
   -webkit-transform: translateY(2px);
   -moz-transform: translateY(2px);
   -ms-transform: translateY(2px);

@@ -3,25 +3,26 @@
 <head>
     <meta charset="utf-8">
     <link th:href="@{/css/login.css}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>로그인</title>
 </head>
 <body>
     <div class="loginpanel">
         <div class="txt">
-          <input id="user" type="text" placeholder="Username" />
+          <input id="user" name="userId" type="text" placeholder="Username" />
           <label for="user" class="entypo-user"></label>
         </div>
         <div class="txt">
-          <input id="pwd" type="password" placeholder="Password" />
+          <input id="pwd" name="userPw" type="password" placeholder="Password" />
           <label for="pwd" class="entypo-lock"></label>
         </div>
         <div class="buttons">
-          <input type="button" value="Login" />
+          <input type="button" id="loginBtn" value="Login" />
           <span>
-            <a href="javascript:void(0)" class="entypo-user-add register">Register</a>
+            <a href="/join" class="entypo-user-add register">회원가입</a>
           </span>
         </div>
-      
+
         <div class="hr">
           <div></div>
           <div>OR</div>
@@ -37,4 +38,44 @@
       
       <span class="resp-info"></span>
 </body>
+<script>
+
+  $(document).ready(function(){
+
+    $('#loginBtn').click(function(){
+        
+        var loginId = $('input[name=userId]').val();
+        var loginPw = $('input[name=userPw]').val();
+
+        console.log('loginId = ' + loginId);
+        console.log('loginPw = ' + loginPw);
+
+        var obj = {
+          userId : loginId,
+          userPw : loginPw
+        }
+    
+        $.ajax({
+          method: 'POST',
+          url: '/login/process',
+          data:obj,
+          success: function(data) {
+            alert('로그인 성공');
+            location.href="/";
+          },
+          
+          error: function(err) {
+            alert('로그인 실패');
+            console.log(err);
+          }
+
+    });
+
+    });
+    
+    
+
+  })
+
+</script>
 </html>
