@@ -3,40 +3,42 @@
 <head>
     <meta charset="utf-8">
     <link th:href="@{/css/login.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 <title>로그인</title>
 </head>
 <body>
-    <div class="loginpanel">
-        <div class="txt">
-          <input id="user" name="userId" type="text" placeholder="Username" />
-          <label for="user" class="entypo-user"></label>
-        </div>
-        <div class="txt">
-          <input id="pwd" name="userPw" type="password" placeholder="Password" />
-          <label for="pwd" class="entypo-lock"></label>
-        </div>
-        <div class="buttons">
-          <input type="button" id="loginBtn" value="Login" />
-          <span>
-            <a href="/join" class="entypo-user-add register">회원가입</a>
-          </span>
-        </div>
-
-        <div class="hr">
-          <div></div>
-          <div>OR</div>
-          <div></div>
-        </div>
-      
-        <div class="social">
-          <a href="javascript:void(0)" class="facebook"></a>
-          <a href="javascript:void(0)" class="twitter"></a>
-          <a href="javascript:void(0)" class="googleplus"></a>
-        </div>
-      </div>
-      
-      <span class="resp-info"></span>
+  <div class="wrap">
+    <div class="login">
+        <h2>로그인</h2>
+          <div class="login_sns">
+            <li><a href=""><i class="fab fa-instagram"></i></a></li>
+            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+          </div>
+          <div class="login_id">
+              <h4>아이디</h4>
+              <input type="text" name="userId" id="loginId" placeholder="아이디">
+          </div>
+          <div class="login_pw">
+              <h4>비밀번호</h4>
+              <input type="password" name="userPw" id="loginPw" placeholder="비밀번호">
+          </div>
+          <div class="login_etc">
+              <div class="checkbox">
+                <input type="checkbox" name="" id=""> Remember Me?
+              </div>
+              <div class="forgot_pw">
+                <a href="">Forgot Password?</a>
+              </div>
+          </div>
+          <div class="submit">
+              <input type="submit" id="loginBtn" value="로그인">
+          </div>
+    </div>
+</div>
 </body>
 <script>
 
@@ -69,7 +71,7 @@
             console.log(err);
           }
 
-    });
+        });
 
     });
     

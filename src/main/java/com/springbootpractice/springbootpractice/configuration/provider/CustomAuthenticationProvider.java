@@ -41,12 +41,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         UserDetailModel userDetailModel = (UserDetailModel)loginService.loadUserByUsername(userName);
 
-        // if(!passwordEncoder.matches(userPassword, userDetailModel.getPassword())) {
-        //     logger.info("비밀번호가 불일치 합니다.");
-        //     throw new BadCredentialsException("비밀번호가 불일치 합니다.");
-        // }
+        if(!passwordEncoder.matches(userPassword, userDetailModel.getPassword())) {
+            logger.info("비밀번호가 불일치 합니다.");
+            throw new BadCredentialsException("비밀번호가 불일치 합니다.");
+        }
 
-        return new UsernamePasswordAuthenticationToken(userDetailModel, null, userDetailModel.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userName, userPassword, userDetailModel.getAuthorities());
     }
 
     @Override
