@@ -7,13 +7,13 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 import com.springbootpractice.springbootpractice.configuration.filter.CustomAuthenticationFilter;
+import com.springbootpractice.springbootpractice.configuration.handler.CustomLoginSuccessHandler;
 import com.springbootpractice.springbootpractice.configuration.provider.CustomAuthenticationProvider;
 
 @Configuration
@@ -27,13 +27,17 @@ public class SecurityConfig {
     public AuthenticationManager providerManager() { return new ProviderManager(customAuthenticationProvider()); }
 
     @Bean
-    public AuthenticationProvider customAuthenticationProvider() { return new CustomAuthenticationProvider(passwordEncoder());}
+    public AuthenticationProvider customAuthenticationProvider() { return new CustomAuthenticationProvider(passwordEncoder()); }
+
+    @Bean
+    public CustomLoginSuccessHandler loginSuccessHandler() { return new CustomLoginSuccessHandler(); }
 
     @Bean
     public CustomAuthenticationFilter customAuthenticationFilter() {
 
         CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(providerManager());
         customAuthenticationFilter.setFilterProcessesUrl("/login/process");
+        customAuthenticationFilter.setAuthenticationSuccessHandler(loginSuccessHandler());
         customAuthenticationFilter.afterPropertiesSet();
 
         return customAuthenticationFilter;
@@ -65,7 +69,7 @@ public class SecurityConfig {
                                 .deleteCookies("remove")
                                 .invalidateHttpSession(true)
                                 .logoutUrl("/logout")
-                                .logoutSuccessUrl("/main")
+                                .logoutSuccessUrl("/")
         );
 
         http.addFilterBefore(customAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

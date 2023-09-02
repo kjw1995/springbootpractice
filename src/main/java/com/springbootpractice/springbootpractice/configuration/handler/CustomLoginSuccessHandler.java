@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Configuration
-public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler{
+public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler{
 
     @Autowired
     private SessionUtil sessionUtils;
