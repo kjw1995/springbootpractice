@@ -18,7 +18,7 @@ public class JoinServiceImpl implements JoinService{
     private BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    public int joinProcess(JoinProcessModel joinProcessModel) {
+    public void joinProcess(JoinProcessModel joinProcessModel) {
         
         Member joinMember = Member.builder()
                                   .id(joinProcessModel.getJoinId())
@@ -29,9 +29,6 @@ public class JoinServiceImpl implements JoinService{
 
         memberRepository.save(joinMember);
 
-        return 1;
-
-        
     }
     
 }

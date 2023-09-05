@@ -4,6 +4,6 @@ import com.springbootpractice.springbootpractice.model.JoinProcessModel;
 
 public interface JoinService {
 
-    public int joinProcess(JoinProcessModel joinProcessModel);
+    public void joinProcess(JoinProcessModel joinProcessModel);
     
 }

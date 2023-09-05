@@ -115,3 +115,29 @@ h2 {
   font-size: 1.2em;
   letter-spacing: 2px;
 }
+
+.footer {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+.mb-lg-0 {
+  margin-bottom: 0 !important;
+}
+
+.col-lg-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}

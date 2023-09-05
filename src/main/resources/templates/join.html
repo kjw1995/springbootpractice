@@ -96,11 +96,8 @@
           contentType: 'application/json',
           data:JSON.stringify(obj),
           success: function(data) {
-            if(data == 1) {
-              alert('회원가입 성공');
-              location.href="/";
-            }
-            
+            alert('회원가입이 완료되었습니다.');
+            location.href="/";
           },
           
           error: function(err) {

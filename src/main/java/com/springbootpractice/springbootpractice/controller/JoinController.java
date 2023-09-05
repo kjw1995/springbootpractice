@@ -26,11 +26,13 @@ public class JoinController {
     }
 
     @PostMapping(value="/join/process")
-    public int joinProcess(@RequestBody JoinProcessModel joinProcessModel) {
+    public void joinProcess(@RequestBody JoinProcessModel joinProcessModel) {
 
-        logger.info("*****회원가입시작*****");
+        logger.info("joinId = " + joinProcessModel.getJoinId());
+        logger.info("joinPw = " + joinProcessModel.getJoinPassword());
+        logger.info("joinEmail = " + joinProcessModel.getEmail());
+        logger.info("joinPhoneNumber = " + joinProcessModel.getPhoneNumber());
 
-        return joinService.joinProcess(joinProcessModel);
     }
     
 }
