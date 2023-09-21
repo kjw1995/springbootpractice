@@ -34,5 +34,10 @@ public class MainController {
         return mav;
     }
 
+    @GetMapping(value="/elements")
+    public ModelAndView preEle() {
+        return new ModelAndView("elements");
+    }
+
 
 }

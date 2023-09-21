@@ -19,7 +19,6 @@ function customEnterKey() {
 
 }
 
-
 function loginProcess(obj) {
 
   $.ajax({
