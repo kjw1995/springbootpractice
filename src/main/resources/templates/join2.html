@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <link th:href="@{/css/join.css}" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="title">
+      회원가입
+    </div>
+    <div class="form">
+       <div class="inputfield">
+          <label>아이디</label>
+          <input type="text" name="joinId" class="input">
+       </div>  
+        <!-- <div class="inputfield">
+          <label>Last Name</label>
+          <input type="text" class="input">
+       </div>   -->
+       <div class="inputfield">
+          <label>비밀번호</label>
+          <input type="password" name="joinPassword" class="input">
+       </div>  
+      <div class="inputfield">
+          <label>비밀번호 확인</label>
+          <input type="password" class="input">
+       </div> 
+        <!-- <div class="inputfield">
+          <label>Gender</label>
+          <div class="custom_select">
+            <select>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+       </div>  -->
+        <div class="inputfield">
+          <label>이메일</label>
+          <input type="text" name="email" class="input">
+       </div> 
+      <div class="inputfield">
+          <label>전화번호</label>
+          <input type="text" name="phoneNumber" class="input">
+       </div> 
+      <div class="inputfield">
+          <label>주소</label>
+          <input type="text" class="input">
+       </div> 
+      <!-- <div class="inputfield">
+          <label>Postal Code</label>
+          <input type="text" class="input">
+       </div>  -->
+      <!-- <div class="inputfield terms">
+          <label class="check">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <p>Agreed to terms and conditions</p>
+       </div>  -->
+      <div class="inputfield">
+        <input type="submit" value="회원가입" class="btn" id="joinProcess-Btn">
+      </div>
+    </div>
+</div>
+</body>
+<script>
+
+  $(document).ready(function(){
+    
+    $("#joinProcess-Btn").click(function(){
+
+      var id = $('input[name=joinId]').val();
+      var password = $('input[name=joinPassword]').val();
+      var email = $('input[name=email]').val();
+      var phoneNumber = $('input[name=phoneNumber]').val();
+
+      console.log(id);
+      console.log(password);
+      console.log(email);
+      console.log(phoneNumber);
+
+      var obj = {
+        joinId : id,
+        joinPassword : password,
+        email : email,
+        phoneNumber : phoneNumber
+      };
+
+      console.log(obj);
+
+      $.ajax({
+          method: 'POST',
+          url: '/join/process',
+          contentType: 'application/json',
+          data:JSON.stringify(obj),
+          success: function(data) {
+            alert('회원가입이 완료되었습니다.');
+            location.href="/";
+          },
+          
+          error: function(err) {
+            alert('회원가입 실패');
+            console.log(err);
+          }
+      });
+
+    });
+
+  })
+
+</script>
+</html>

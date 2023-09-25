@@ -1,114 +1,47 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <link th:href="@{/css/join.css}" rel="stylesheet" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
-  <div class="wrapper">
-    <div class="title">
-      회원가입
-    </div>
-    <div class="form">
-       <div class="inputfield">
-          <label>아이디</label>
-          <input type="text" name="joinId" class="input">
-       </div>  
-        <!-- <div class="inputfield">
-          <label>Last Name</label>
-          <input type="text" class="input">
-       </div>   -->
-       <div class="inputfield">
-          <label>비밀번호</label>
-          <input type="password" name="joinPassword" class="input">
-       </div>  
-      <div class="inputfield">
-          <label>비밀번호 확인</label>
-          <input type="password" class="input">
-       </div> 
-        <!-- <div class="inputfield">
-          <label>Gender</label>
-          <div class="custom_select">
-            <select>
-              <option value="">Select</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
-       </div>  -->
-        <div class="inputfield">
-          <label>이메일</label>
-          <input type="text" name="email" class="input">
-       </div> 
-      <div class="inputfield">
-          <label>전화번호</label>
-          <input type="text" name="phoneNumber" class="input">
-       </div> 
-      <div class="inputfield">
-          <label>주소</label>
-          <input type="text" class="input">
-       </div> 
-      <!-- <div class="inputfield">
-          <label>Postal Code</label>
-          <input type="text" class="input">
-       </div>  -->
-      <!-- <div class="inputfield terms">
-          <label class="check">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <p>Agreed to terms and conditions</p>
-       </div>  -->
-      <div class="inputfield">
-        <input type="submit" value="회원가입" class="btn" id="joinProcess-Btn">
-      </div>
-    </div>
-</div>
-</body>
-<script>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>회원가입</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" th:href="@{/css/main.css}" />
+	</head>
+	<body class="is-preload">
+	<div id="page-wrapper">
+		<div th:replace="common/header/header :: common-header"></div>
+			<!-- Main -->
+				<section id="main" class="container">
+					<header>
+						<h2>회원가입</h2>
+					</header>
+					<div class="box">
+						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+						<h3>This is a subheading</h3>
+						<p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae ante vestibulum ante. Blandit. Ante accumsan nisi eu placerat gravida placerat adipiscing in risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit aliquet aliquet lobortis. Ultricies blandit lobortis praesent turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep. Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan mi eget adipiscing nulla. Non vestibulum ac interdum condimentum semper commodo massa arcu.</p>
+						<div class="row">
+							<div class="row-6 row-12-mobilep">
+								<h3>And now a subheading</h3>
+								<p>Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae lorem ipsum adipiscing ac. Vivamus ornare laoreet odio vis praesent.</p>
+							</div>
+							<div class="row-6 row-12-mobilep">
+								<h3>And another subheading</h3>
+								<p>Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae lorem ipsum adipiscing ac. Vivamus ornare laoreet odio vis praesent.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Footer -->
+				<div th:replace="common/footer/footer :: common-footer"></div>	
+		</div>
+	</div>
+		<!-- Scripts -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/jquery.dropotron.min.js}"></script>
+		<script th:src="@{/js/jquery.scrollex.min.js}"></script>
+		<script th:src="@{/js/browser.min.js}"></script>
+		<script th:src="@{/js/breakpoints.min.js}"></script>
+		<script th:src="@{/js/util.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
 
-  $(document).ready(function(){
-    
-    $("#joinProcess-Btn").click(function(){
-
-      var id = $('input[name=joinId]').val();
-      var password = $('input[name=joinPassword]').val();
-      var email = $('input[name=email]').val();
-      var phoneNumber = $('input[name=phoneNumber]').val();
-
-      console.log(id);
-      console.log(password);
-      console.log(email);
-      console.log(phoneNumber);
-
-      var obj = {
-        joinId : id,
-        joinPassword : password,
-        email : email,
-        phoneNumber : phoneNumber
-      };
-
-      console.log(obj);
-
-      $.ajax({
-          method: 'POST',
-          url: '/join/process',
-          contentType: 'application/json',
-          data:JSON.stringify(obj),
-          success: function(data) {
-            alert('회원가입이 완료되었습니다.');
-            location.href="/";
-          },
-          
-          error: function(err) {
-            alert('회원가입 실패');
-            console.log(err);
-          }
-      });
-
-    });
-
-  })
-
-</script>
+	</body>
 </html>
