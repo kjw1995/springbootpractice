@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.controller;
+package com.springbootpractice.springbootpractice.controller.main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ public class MainController {
     @GetMapping(value={"/", "/main"})
     public ModelAndView goMain() {
 
-        ModelAndView mav = new ModelAndView("main.html");
+        ModelAndView mav = new ModelAndView("main/main");
 
         SessionDto sessionDto = sessionUtil.getSession();
 

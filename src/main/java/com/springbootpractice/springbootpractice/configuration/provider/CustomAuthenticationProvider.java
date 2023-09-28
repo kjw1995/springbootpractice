@@ -10,8 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.springbootpractice.springbootpractice.model.UserDetailModel;
-import com.springbootpractice.springbootpractice.service.LoginService;
+import com.springbootpractice.springbootpractice.model.security.UserDetailModel;
+import com.springbootpractice.springbootpractice.service.login.LoginService;
 
 import lombok.RequiredArgsConstructor;
 

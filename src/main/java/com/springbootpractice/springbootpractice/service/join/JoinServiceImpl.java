@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.service;
+package com.springbootpractice.springbootpractice.service.join;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.springbootpractice.springbootpractice.jpa.entity.Member;
 import com.springbootpractice.springbootpractice.jpa.repository.MemberRepository;
-import com.springbootpractice.springbootpractice.model.JoinProcessModel;
+import com.springbootpractice.springbootpractice.model.join.JoinProcessModel;
 
 @Service
 public class JoinServiceImpl implements JoinService{

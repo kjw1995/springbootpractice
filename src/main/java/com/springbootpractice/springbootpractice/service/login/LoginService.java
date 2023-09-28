@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.service;
+package com.springbootpractice.springbootpractice.service.login;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 

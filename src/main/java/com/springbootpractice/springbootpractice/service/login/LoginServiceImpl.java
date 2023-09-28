@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.service;
+package com.springbootpractice.springbootpractice.service.login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.springbootpractice.springbootpractice.jpa.entity.Member;
 import com.springbootpractice.springbootpractice.jpa.repository.MemberRepository;
-import com.springbootpractice.springbootpractice.model.UserDetailModel;
+import com.springbootpractice.springbootpractice.model.security.UserDetailModel;
 
 @Service
 public class LoginServiceImpl implements LoginService{

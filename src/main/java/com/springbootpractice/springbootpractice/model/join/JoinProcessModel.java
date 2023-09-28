@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.model;
+package com.springbootpractice.springbootpractice.model.join;
 
 import lombok.Getter;
 
@@ -7,7 +7,7 @@ public class JoinProcessModel {
 
     private String joinId;
     private String joinPassword;
-    private String phoneNumber;
-    private String email;
+    private String joinPhoneNumber;
+    private String joinEmail;
     
 }

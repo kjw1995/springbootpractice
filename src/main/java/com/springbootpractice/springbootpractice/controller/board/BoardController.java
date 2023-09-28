@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.controller;
+package com.springbootpractice.springbootpractice.controller.board;
 
 import org.springframework.web.bind.annotation.RestController;
 

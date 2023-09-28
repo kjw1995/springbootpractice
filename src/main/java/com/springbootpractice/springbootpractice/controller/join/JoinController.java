@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.controller;
+package com.springbootpractice.springbootpractice.controller.join;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.springbootpractice.springbootpractice.model.JoinProcessModel;
-import com.springbootpractice.springbootpractice.service.JoinService;
+import com.springbootpractice.springbootpractice.model.join.JoinProcessModel;
+import com.springbootpractice.springbootpractice.service.join.JoinService;
 
 @RestController
 public class JoinController {
@@ -22,7 +22,7 @@ public class JoinController {
 
     @GetMapping(value="/join")
     public ModelAndView join() {
-        return new ModelAndView("join.html");
+        return new ModelAndView("join/join");
     }
 
     @PostMapping(value="/join/process")
@@ -30,8 +30,8 @@ public class JoinController {
 
         logger.info("joinId = " + joinProcessModel.getJoinId());
         logger.info("joinPw = " + joinProcessModel.getJoinPassword());
-        logger.info("joinEmail = " + joinProcessModel.getEmail());
-        logger.info("joinPhoneNumber = " + joinProcessModel.getPhoneNumber());
+        logger.info("joinEmail = " + joinProcessModel.getJoinEmail());
+        logger.info("joinPhoneNumber = " + joinProcessModel.getJoinPhoneNumber());
 
     }
     

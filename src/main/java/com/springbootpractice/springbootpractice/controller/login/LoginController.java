@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.controller;
+package com.springbootpractice.springbootpractice.controller.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

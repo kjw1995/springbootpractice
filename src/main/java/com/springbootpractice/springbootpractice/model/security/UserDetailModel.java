@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.model;
+package com.springbootpractice.springbootpractice.model.security;
 
 import java.util.Collection;
 import java.util.List;
