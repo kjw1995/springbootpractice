@@ -10,10 +10,10 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 import com.springbootpractice.springbootpractice.common.utils.SessionUtil;
 import com.springbootpractice.springbootpractice.common.utils.StringFormatUtil;
 import com.springbootpractice.springbootpractice.dto.session.SessionDto;
-import com.springbootpractice.springbootpractice.jpa.entity.LoginLog;
-import com.springbootpractice.springbootpractice.jpa.entity.Member;
-import com.springbootpractice.springbootpractice.jpa.repository.LoginLogRepository;
-import com.springbootpractice.springbootpractice.jpa.repository.MemberRepository;
+import com.springbootpractice.springbootpractice.jpa.entity.login.LoginLog;
+import com.springbootpractice.springbootpractice.jpa.entity.member.Member;
+import com.springbootpractice.springbootpractice.jpa.repository.login.LoginLogRepository;
+import com.springbootpractice.springbootpractice.jpa.repository.member.MemberRepository;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.springbootpractice.springbootpractice.jpa.entity.Member;
-import com.springbootpractice.springbootpractice.jpa.repository.MemberRepository;
+import com.springbootpractice.springbootpractice.jpa.entity.member.Member;
+import com.springbootpractice.springbootpractice.jpa.repository.member.MemberRepository;
 import com.springbootpractice.springbootpractice.model.join.JoinProcessModel;
 
 @Service

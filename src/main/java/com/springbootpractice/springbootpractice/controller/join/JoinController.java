@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springbootpractice.springbootpractice.common.url.commonUrl;
 import com.springbootpractice.springbootpractice.model.join.JoinProcessModel;
 import com.springbootpractice.springbootpractice.service.join.JoinService;
 
@@ -20,12 +21,12 @@ public class JoinController {
     @Autowired
     private JoinService joinService;
 
-    @GetMapping(value="/join")
+    @GetMapping(value = commonUrl.JOIN_URI)
     public ModelAndView join() {
         return new ModelAndView("join/join");
     }
 
-    @PostMapping(value="/join/process")
+    @PostMapping(value = commonUrl.JOIN_PROGRESS)
     public void joinProcess(@RequestBody JoinProcessModel joinProcessModel) {
 
         logger.info("joinId = " + joinProcessModel.getJoinId());

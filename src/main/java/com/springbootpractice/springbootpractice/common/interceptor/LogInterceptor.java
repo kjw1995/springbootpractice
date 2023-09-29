@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.common;
+package com.springbootpractice.springbootpractice.common.interceptor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.springbootpractice.springbootpractice.jpa.entity.AccessLog;
-import com.springbootpractice.springbootpractice.jpa.repository.AccessLogRepository;
+import com.springbootpractice.springbootpractice.jpa.entity.access.AccessLog;
+import com.springbootpractice.springbootpractice.jpa.repository.access.AccessLogRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

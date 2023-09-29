@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.jpa.entity;
+package com.springbootpractice.springbootpractice.jpa.entity.member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.springbootpractice.springbootpractice.common.LogInterceptor;
+import com.springbootpractice.springbootpractice.common.interceptor.LogInterceptor;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -19,7 +19,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(logInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/css/**","/*.ico");
+                .excludePathPatterns("/css/**","/*.ico","/js/**");
 
 	}
     

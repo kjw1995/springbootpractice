@@ -1,4 +1,4 @@
-package com.springbootpractice.springbootpractice.jpa.entity;
+package com.springbootpractice.springbootpractice.jpa.entity.access;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,26 +15,22 @@ import lombok.Setter;
 
 @Data
 @Entity
-@Table(name="LOGIN_LOG")
+@Table(name="ACCESS_LOG")
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginLog {
+public class AccessLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idx")
     private Integer idx;
 
-    @Column(name="login_id")
-    private String loginId;
+    @Column(name="ip")
+    private String ip;
 
-    @Column(name="access_ip")
-    private String accessIp;
-
-    @Column(name="access_time")
-    private String accessTime;
-
+    @Column(name="time")
+    private String time;
 }

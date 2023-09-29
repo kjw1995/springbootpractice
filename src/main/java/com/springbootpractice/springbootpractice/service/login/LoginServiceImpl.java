@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.springbootpractice.springbootpractice.jpa.entity.Member;
-import com.springbootpractice.springbootpractice.jpa.repository.MemberRepository;
+import com.springbootpractice.springbootpractice.jpa.entity.member.Member;
+import com.springbootpractice.springbootpractice.jpa.repository.member.MemberRepository;
 import com.springbootpractice.springbootpractice.model.security.UserDetailModel;
 
 @Service

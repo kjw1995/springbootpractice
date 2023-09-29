@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springbootpractice.springbootpractice.common.url.commonUrl;
 import com.springbootpractice.springbootpractice.common.utils.SessionUtil;
 import com.springbootpractice.springbootpractice.dto.session.SessionDto;
 
@@ -18,7 +19,7 @@ public class MainController {
     @Autowired
     SessionUtil sessionUtil;
 
-    @GetMapping(value={"/", "/main"})
+    @GetMapping(value= {commonUrl.ROOT_URI , commonUrl.MAIN_URI})
     public ModelAndView goMain() {
 
         ModelAndView mav = new ModelAndView("main/main");
