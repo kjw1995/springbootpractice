@@ -22,5 +22,10 @@ public class commonUrl {
      * LOGIN
      */
     public static final String LOGIN_URI = ROOT_URI + "login";
+
+    /*
+     * BOARD
+     */
+    public static final String BOARD_URI = ROOT_URI + "board";
     
 }

@@ -23,8 +23,8 @@ public class JoinServiceImpl implements JoinService{
         Member joinMember = Member.builder()
                                   .id(joinProcessModel.getJoinId())
                                   .pw(passwordEncoder.encode(joinProcessModel.getJoinPassword()))
-                                  .email(joinProcessModel.getEmail())
-                                  .phoneNumber(joinProcessModel.getPhoneNumber())
+                                  .email(joinProcessModel.getJoinEmail())
+                                  .phoneNumber(joinProcessModel.getJoinPhoneNumber())
                                   .build();
 
         memberRepository.save(joinMember);
