@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
     <header id="header" class="alt" th:fragment="common-header" style="background: #444">
-        <h1><a href="/">스프링 부트</a> version 3.1.2</h1>
+        <h1><a th:href="${commonUrls.ROOT_URI}">스프링 부트</a> version 3.1.2</h1>
         <nav id="nav">
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a th:href="${commonUrls.ROOT_URI}">Home</a></li>
                 <li>
                     <a href="#" class="icon solid fa-angle-down">Layouts</a>
                     <ul>
@@ -23,7 +23,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="/join" class="button">Sign Up</a></li>
+                <li><a th:href="${commonUrls.JOIN_URI}" class="button">Sign Up</a></li>
             </ul>
         </nav>
     </header>
