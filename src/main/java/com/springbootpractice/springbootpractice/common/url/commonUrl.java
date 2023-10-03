@@ -17,7 +17,8 @@ public class commonUrl {
      */
     public static final String JOIN_URI = ROOT_URI + "join";
     public static final String JOIN_PROGRESS = JOIN_URI + "/progress";
-
+    public static final String JOIN_CHECK_ID = JOIN_URI + "/checkId";
+    
     /*
      * LOGIN
      */

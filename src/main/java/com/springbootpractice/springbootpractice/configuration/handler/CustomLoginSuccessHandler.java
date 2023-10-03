@@ -36,7 +36,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 
         String userId = (String)authentication.getPrincipal();
         
-        Member member = memberRepository.findById(userId);
+        Member member = memberRepository.findByUserId(userId);
 
         LoginLog loginLog = LoginLog.builder()
                                     .loginId(userId)
@@ -47,7 +47,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
         loginLogRepository.save(loginLog);
 
         SessionDto sessionDto = SessionDto.builder()
-                                          .userId(member.getId())
+                                          .userId(member.getUserId())
                                           .phoneNumber(member.getPhoneNumber())
                                           .email(member.getEmail())
                                           .build();

@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService{
 
         UserDetailModel userDetailModel = new UserDetailModel();
         
-        Member member = memberRepository.findById(username);
+        Member member = memberRepository.findByUserId(username);
 
         if(member == null) {
             logger.info("존재하지 않는 회원입니다.");

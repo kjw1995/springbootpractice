@@ -18,7 +18,7 @@
 						<form>
 							<div class="row gtr-uniform gtr-50">
 								<div class="col-6 col-12-mobilep" style="width: 100%">
-									<input type="text" class="join-Id" placeholder="아이디" />
+									<input type="text" class="join-Id" onBlur="progressCheckId()" placeholder="아이디" />
 								</div>
 								<div class="col-6 col-12-mobilep" style="width: 100%">
 									<input type="text" class="join-Password" placeholder="비밀번호" />
@@ -56,14 +56,15 @@
 		<script th:src="@{/js/main.js}"></script>
 
 	</body>
-	<script>
+	<script th:inline="javascript">
+		
 		var joinId = $(".join-Id");
 		var joinPassword = $(".join-Password");
 		var joinPhoneNumber = $(".join-PhoneNumber");
 		var joinEmail = $(".join-Email");
 
 		$(document).ready(function(){
-			
+
 			$(".joinProgressBtn").click(function(){
 
 				console.log("joinId = " + joinId.val());
@@ -93,12 +94,38 @@
 
 			});
 
-			
-			
-
-
-
 		});
+
+		function progressCheckId() {
+
+			if(joinId.val().length > 0) {
+				checkId();
+			}
+
+		}
+
+		function checkId() {
+
+			$.ajax({
+				url: [[${commonUrls.JOIN_CHECK_ID}]],
+				type: "POST",
+				data: joinId.val(),
+				contentType: "application/json",
+				success: function(result) {
+					console.log(result);
+					if(result.status == "SUCCESS") {
+						alert(result.message);
+					} else {
+						alert(result.message);
+					}
+				},
+				error: function() {
+					alert("AJAX ERROR");
+				}
+				
+			});
+
+		}
 
 
 	</script>

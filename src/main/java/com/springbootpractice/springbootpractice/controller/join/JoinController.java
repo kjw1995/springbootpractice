@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.springbootpractice.springbootpractice.common.url.commonUrl;
 import com.springbootpractice.springbootpractice.model.join.JoinProcessModel;
+import com.springbootpractice.springbootpractice.model.response.ResponseModel;
 import com.springbootpractice.springbootpractice.service.join.JoinService;
 
 @RestController
@@ -26,6 +27,9 @@ public class JoinController {
         return new ModelAndView("join/join");
     }
 
+    @PostMapping(value = commonUrl.JOIN_CHECK_ID)
+    public ResponseModel checkId(@RequestBody String id) { return joinService.checkId(id); }
+
     @PostMapping(value = commonUrl.JOIN_PROGRESS)
     public void joinProcess(@RequestBody JoinProcessModel joinProcessModel) {
 
@@ -35,5 +39,7 @@ public class JoinController {
         logger.info("joinPhoneNumber = " + joinProcessModel.getJoinPhoneNumber());
 
     }
+
+
     
 }

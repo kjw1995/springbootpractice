@@ -28,8 +28,8 @@ public class Member {
     @Column(name="idx")
     private Integer idx;
 
-    @Column(name="id")
-    private String id;
+    @Column(name="user_id")
+    private String userId;
 
     @Column(name="pw")
     private String pw;
