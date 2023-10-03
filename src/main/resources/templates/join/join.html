@@ -4,6 +4,7 @@
 		<title>회원가입</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 		<link rel="stylesheet" th:href="@{/css/main.css}" />
 	</head>
 	<body class="is-preload">
@@ -21,10 +22,10 @@
 									<input type="text" class="join-Id" onBlur="progressCheckId()" placeholder="아이디" />
 								</div>
 								<div class="col-6 col-12-mobilep" style="width: 100%">
-									<input type="text" class="join-Password" placeholder="비밀번호" />
+									<input type="password" class="join-Password" placeholder="비밀번호" />
 								</div>
 								<div class="col-6 col-12-mobilep" style="width: 100%">
-									<input type="text" class="join-password-check" placeholder="비밀번호 확인" />
+									<input type="password" class="join-password-check" placeholder="비밀번호 확인" />
 								</div>
 								<div class="col-6 col-12-mobilep" style="width: 100%">
 									<input type="text" class="join-PhoneNumber" placeholder="전화번호" />
@@ -100,6 +101,9 @@
 
 			if(joinId.val().length > 0) {
 				checkId();
+			} else {
+				$(".join-Id").css("border-color", "black");
+				$(".join-Id").css("box-shadow","0 0 0 2px black");
 			}
 
 		}
@@ -114,9 +118,13 @@
 				success: function(result) {
 					console.log(result);
 					if(result.status == "SUCCESS") {
-						alert(result.message);
+						// var $newSpan = $("<span>").text(result.message);
+        				// $(".join-Id").after($newSpan);
+        				$(".join-Id").css("border-color", "green");
+						$(".join-Id").css("box-shadow","0 0 0 2px green")
 					} else {
-						alert(result.message);
+						$(".join-Id").css("border-color", "red");
+						$(".join-Id").css("box-shadow","0 0 0 2px red")
 					}
 				},
 				error: function() {
