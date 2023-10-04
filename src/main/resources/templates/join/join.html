@@ -102,13 +102,14 @@
 			if(joinId.val().length > 0) {
 				checkId();
 			} else {
-				$(".join-Id").css("border-color", "black");
-				$(".join-Id").css("box-shadow","0 0 0 2px black");
+				$(".checkText").remove();
 			}
 
 		}
 
 		function checkId() {
+
+			$(".checkText").remove();
 
 			$.ajax({
 				url: [[${commonUrls.JOIN_CHECK_ID}]],
@@ -118,14 +119,11 @@
 				success: function(result) {
 					console.log(result);
 					if(result.status == "SUCCESS") {
-						// var $newSpan = $("<span>").text(result.message);
-        				// $(".join-Id").after($newSpan);
-        				$(".join-Id").css("border-color", "green");
-						$(".join-Id").css("box-shadow","0 0 0 2px green")
+        				$(".join-Id").after("<p class='checkText' style='color: green; margin: 0.2em 0.2em 0.2em 0.2em;'>사용 가능한 아이디입니다.</p>");
 					} else {
-						$(".join-Id").css("border-color", "red");
-						$(".join-Id").css("box-shadow","0 0 0 2px red")
+						$(".join-Id").after("<p class='checkText' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>사용 불가능한 아이디입니다.</p>");
 					}
+
 				},
 				error: function() {
 					alert("AJAX ERROR");
