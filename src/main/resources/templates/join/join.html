@@ -119,9 +119,9 @@
 				success: function(result) {
 					console.log(result);
 					if(result.status == "SUCCESS") {
-        				$(".join-Id").after("<p class='checkText' style='color: green; margin: 0.2em 0.2em 0.2em 0.2em;'>사용 가능한 아이디입니다.</p>");
+        				$(".join-Id").after("<p class='checkText' style='color: green; margin: 0.2em 0.2em 0.2em 0.2em;'>" + result.message + "</p>");
 					} else {
-						$(".join-Id").after("<p class='checkText' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>사용 불가능한 아이디입니다.</p>");
+						$(".join-Id").after("<p class='checkText' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>" + result.message + "</p>");
 					}
 
 				},

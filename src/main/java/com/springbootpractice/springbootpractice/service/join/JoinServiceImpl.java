@@ -38,10 +38,10 @@ public class JoinServiceImpl implements JoinService{
         Member queryObject = memberRepository.findByUserId(id);
 
         if(queryObject == null) {
-            return new ResponseModel(ResponseModel.ResponseStatus.SUCCESS, "아이디 사용 가능");
+            return new ResponseModel(ResponseModel.ResponseStatus.SUCCESS, "사용 가능한 아이디입니다.");
         } 
 
-        return new ResponseModel(ResponseModel.ResponseStatus.FAILED, "아이디 사용 불가능");
+        return new ResponseModel(ResponseModel.ResponseStatus.FAILED, "이미 사용중인 아이디입니다.");
         
     }
     
