@@ -22,7 +22,7 @@
 									<input type="text" class="join-Id" onBlur="progressCheckId()" placeholder="아이디" />
 								</div>
 								<div class="col-6 col-12-mobilep" style="width: 100%">
-									<input type="password" class="join-Password" placeholder="비밀번호" />
+									<input type="password" class="join-Password" placeholder="비밀번호 8자 이상 20자 이하" maxlength="20" onBlur="ValidationPassword()"/>
 								</div>
 								<div class="col-6 col-12-mobilep" style="width: 100%">
 									<input type="password" class="join-password-check" placeholder="비밀번호 확인" />
@@ -65,7 +65,7 @@
 		var joinEmail = $(".join-Email");
 
 		$(document).ready(function(){
-
+			
 			$(".joinProgressBtn").click(function(){
 
 				console.log("joinId = " + joinId.val());
@@ -130,6 +130,15 @@
 				}
 				
 			});
+
+		}
+
+		function ValidationPassword() {
+
+			if(joinPassword.length < 8) {
+				$(".join-Password").after("<p class='checkText' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>비밀번호는 8자 이상 입력해주세요.</p>");
+				return false;
+			}
 
 		}
 
