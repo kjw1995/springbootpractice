@@ -32,9 +32,9 @@ public class LogInterceptor implements HandlerInterceptor {
         if(referer == null) {
 
             AccessLog accessLog = AccessLog.builder()
-                                            .ip(request.getRemoteAddr())
-                                            .time(accessTime)
-                                       .build();
+                                           .ip(request.getRemoteAddr())
+                                           .time(accessTime)
+                                           .build();
 
             accessLogRepository.save(accessLog);
             

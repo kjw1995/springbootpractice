@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-    private static final Logger logger = LoggerFactory.getLogger(CustomAuthenticationProvider.class);
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public CustomAuthenticationProvider(BCryptPasswordEncoder passwordEncoder) {}
 
