@@ -135,14 +135,21 @@
 
 		function passwordValidate() {
 
+			var passwordValue = joinPassword.val();
+
+			var num = passwordValue.search(/[0-9]/g);
+			var eng = passwordValue.search(/[a-z]/ig);
+			var spe = passwordValue.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
 			console.log("password = " + joinPassword.val().length);
+			$(".password-invalid").remove();
 			
-			if(joinPassword.val().length < 8) {
+			if(passwordValue.length < 8) {
 				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>비밀번호는 8자 이상 입력해주세요.</p>");
 				return false;
-			} else {
-				$(".password-invalid").remove();
-				return true;
+			} else if(passwordValue.serach(/\s/) != -1) {
+				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>공백은 입력 불가능합니다.</p>");
+				return false;
 			}
 
 		}
