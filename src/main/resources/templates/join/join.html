@@ -136,22 +136,26 @@
 		function passwordValidate() {
 
 			var passwordValue = joinPassword.val();
+			var numVal = passwordValue.search(/[0-9]/g);
+			var engVal = passwordValue.search(/[a-z]/ig);
+			var speVal = passwordValue.search(/[`~!@@#$%^&*|\\\'\";l\/?]/gi);
 
-			var num = passwordValue.search(/[0-9]/g);
-			var eng = passwordValue.search(/[a-z]/ig);
-			var spe = passwordValue.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-
-			console.log("password = " + joinPassword.val().length);
 			$(".password-invalid").remove();
 			
 			if(passwordValue.length < 8) {
 				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>비밀번호는 8자 이상 입력해주세요.</p>");
 				return false;
-			} else if(passwordValue.serach(/\s/) != -1) {
+			} else if(passwordValue.search(/\s/) != -1) {
 				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>공백은 입력 불가능합니다.</p>");
 				return false;
+			} else if(numVal < 0 || engVal < 0 || speVal < 0) {
+				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>영문, 숫자, 특수문자를 혼합하여 입력해주세요.</p>");
+				return false;
+			} else {
+				return true;
 			}
 
+	
 		}
 
 

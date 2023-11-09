@@ -17,7 +17,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDetailModel implements UserDetails{
+public class UserDetailModel implements UserDetails {
 
     private String username;
     private String password;
