@@ -7,6 +7,6 @@ public interface JoinService {
 
     public ResponseModel checkId(String id);
 
-    public void joinProcess(JoinProcessModel joinProcessModel);
+    public ResponseModel joinProcess(JoinProcessModel joinProcessModel);
     
 }

@@ -31,12 +31,14 @@ public class JoinController {
     public ResponseModel checkId(@RequestBody String id) { return joinService.checkId(id); }
 
     @PostMapping(value = commonUrl.JOIN_PROGRESS)
-    public void joinProcess(@RequestBody JoinProcessModel joinProcessModel) {
+    public ResponseModel joinProcess(@RequestBody JoinProcessModel joinProcessModel) {
 
         logger.info("joinId = " + joinProcessModel.getJoinId());
         logger.info("joinPw = " + joinProcessModel.getJoinPassword());
         logger.info("joinEmail = " + joinProcessModel.getJoinEmail());
         logger.info("joinPhoneNumber = " + joinProcessModel.getJoinPhoneNumber());
+
+        return joinService.joinProcess(joinProcessModel);
 
     }
 

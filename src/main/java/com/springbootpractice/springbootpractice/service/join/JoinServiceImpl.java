@@ -19,7 +19,7 @@ public class JoinServiceImpl implements JoinService{
     private BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    public void joinProcess(JoinProcessModel joinProcessModel) {
+    public ResponseModel joinProcess(JoinProcessModel joinProcessModel) {
         
         Member joinMember = Member.builder()
                                   .userId(joinProcessModel.getJoinId())
@@ -29,6 +29,8 @@ public class JoinServiceImpl implements JoinService{
                                   .build();
 
         memberRepository.save(joinMember);
+
+        return new ResponseModel(ResponseModel.ResponseStatus.SUCCESS, "회원 가입이 완료되었습니다.");
 
     }
 
