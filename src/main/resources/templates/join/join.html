@@ -81,12 +81,17 @@
 				};
 
 				$.ajax({
-					url:"/join/process",
+					url: /*[[${commonUrls.JOIN_PROGRESS}]]*/ '',
 					type:"POST",
 					data: JSON.stringify(joinModel),
 					contentType: "application/json",
 					success: function(result) {
-						alert("성공");
+						if(result.status == "SUCCESS") {
+							alert(result.message);
+						}
+
+						alert(result.message);
+
 					},
 					error: function() {
 						alert("ERROR");

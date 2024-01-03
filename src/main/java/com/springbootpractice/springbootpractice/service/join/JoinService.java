@@ -5,8 +5,8 @@ import com.springbootpractice.springbootpractice.model.response.ResponseModel;
 
 public interface JoinService {
 
-    public ResponseModel checkId(String id);
+    ResponseModel checkId(String id);
 
-    public ResponseModel joinProcess(JoinProcessModel joinProcessModel);
+    ResponseModel joinProcess(JoinProcessModel joinProcessModel);
     
 }

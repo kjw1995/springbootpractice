@@ -92,10 +92,11 @@
 
       $.ajax({
           method: 'POST',
-          url: '/join/process',
+          url: /*[[${commonUrl.JOIN_PROGRESS}]]*/ '',
           contentType: 'application/json',
           data:JSON.stringify(obj),
           success: function(data) {
+            console.log(data);
             alert('회원가입이 완료되었습니다.');
             location.href="/";
           },
