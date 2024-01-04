@@ -68,11 +68,6 @@
 			
 			$(".joinProgressBtn").click(function(){
 
-				console.log("joinId = " + joinId.val());
-				console.log("joinPassword = " + joinPassword.val());
-				console.log("joinPhoneNumber = " + joinPhoneNumber.val());
-				console.log("joinEmail = " + joinEmail.val());
-
 				var joinModel = {
 					"joinId" : joinId.val(),
 					"joinPassword" : joinPassword.val(),
@@ -150,9 +145,6 @@
 			if(passwordValue.length < 8) {
 				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>비밀번호는 8자 이상 입력해주세요.</p>");
 				return false;
-			} else if(passwordValue.search(/\s/) != -1) {
-				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>공백은 입력 불가능합니다.</p>");
-				return false;
 			} else if(numVal < 0 || engVal < 0 || speVal < 0) {
 				$(".join-Password").after("<p class='password-invalid' style='color: red; margin: 0.2em 0.2em 0.2em 0.2em;'>영문, 숫자, 특수문자를 혼합하여 입력해주세요.</p>");
 				return false;
@@ -162,6 +154,13 @@
 
 	
 		}
+
+		$(document).on('keydown', function(event) {
+			// 만약 입력된 키의 keyCode가 공백(32)인 경우 이벤트를 막음
+			if (event.keyCode === 32) {
+				event.preventDefault();
+			}
+		});
 
 
 	</script>

@@ -17,6 +17,9 @@ public class CommonAop {
     @Pointcut("execution(public * com.springbootpractice.springbootpractice.controller..*(..))")
     private void commonCut() {}
 
+    @Pointcut("within(com.springbootpractice.springbootpractice.controller..*)") // 3
+    public void onRequest() {}
+
     @AfterReturning(pointcut = "commonCut()", returning = "modelAndView")
     public void returnViewModel(ModelAndView modelAndView) {
 
