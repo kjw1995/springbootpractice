@@ -36,7 +36,7 @@
 								<div class="col-12">
 									<ul class="actions">
 										<li><input type="button" value="가입하기" class="joinProgressBtn"/></li>
-										<li><input type="reset" value="취소" class="alt" /></li>
+										<li><input type="button" value="취소" class="joinCancel" /></li>
 									</ul>
 								</div>
 							</div>
@@ -93,6 +93,10 @@
 					}
 				});
 
+			});
+
+			$(".joinCancel").click(function(){
+				location.href = /*[[${commonUrls.ROOT_URI}]]*/ '';
 			});
 
 		});
